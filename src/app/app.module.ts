@@ -7,23 +7,23 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { reducers, metaReducers } from './store/reducer';
 // import { ProductEffects } from './store/effect';
-
+import { MatToolbarModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 50 }),
+    MatToolbarModule,
     // ENV !== 'production' ? StoreDevtoolsModule.instrument() : []
   ],
-  providers: [],
+  declarations: [
+    AppComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

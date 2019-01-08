@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: './home/home.module#HomeModule'
   },
   {
+    path: 'product',
+    loadChildren: './product/product.module#ProductModule'
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }

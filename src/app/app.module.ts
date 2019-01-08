@@ -5,11 +5,11 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 
-import { reducers, metaReducers } from './store/reducer';
+import { reducers, metaReducers } from './store/reducers';
 // import { ProductEffects } from './store/effect';
-import { MatToolbarModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   imports: [
@@ -18,7 +18,7 @@ import { AppComponent } from './app.component';
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 50 }),
-    MatToolbarModule,
+    CoreModule,
     // ENV !== 'production' ? StoreDevtoolsModule.instrument() : []
   ],
   declarations: [

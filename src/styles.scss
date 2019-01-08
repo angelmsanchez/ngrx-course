@@ -1,2 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Poppins', 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0;
+
+  h1 {
+    font-size: 48px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 26px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  h5 {
+    font-size: 18px;
+  }
+
+  h6 {
+    font-size: 16px;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  button,
+  html input[type='button'],
+  input[type='reset'],
+  input[type='submit'] {
+    cursor: pointer;
+  }
+
+  button,
+  select {
+    text-transform: none;
+  }
+
+  button {
+    overflow: visible;
+    padding: 0;
+    outline: 0;
+  }
+
+  input {
+    margin: 0;
+  }
+
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+  }
+
+  a {
+    color: #337ab7;
+    text-decoration: none;
+    background-color: transparent;
+    outline: 0;
+  }
+}

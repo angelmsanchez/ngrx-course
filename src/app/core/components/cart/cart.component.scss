@@ -1,0 +1,32 @@
+.cart {
+  display: flex;
+
+  .button {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .counter {
+    position: relative;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .text {
+      position: absolute;
+      height: 16px;
+      width: 16px;
+    }
+
+    .background {
+      position: absolute;
+      background: rgba(255, 0, 0, 0.9);
+      border-radius: 50%;
+      height: 20px;
+      width: 20px;
+    }
+  }
+}

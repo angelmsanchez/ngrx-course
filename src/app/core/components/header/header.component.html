@@ -3,6 +3,9 @@
     <a routerLink="home" class="fill">
       NgRx Course
     </a>
+    <mat-slide-toggle color="accent" (change)="onThemeChange($event)">
+      Dark Theme
+    </mat-slide-toggle>
     <app-cart></app-cart>
   </mat-toolbar>
 </header>

@@ -1,5 +1,12 @@
-<app-header></app-header>
+<section class="ngrx-course" [ngClass]="{'solution-dark-theme': isDarkTheme}">
+  <div class="header">
+    <app-header></app-header>
+  </div>
 
-<main>
-  <router-outlet></router-outlet>
-</main>
+  <main class="solution">
+    <mat-card>
+      <router-outlet></router-outlet>
+    </mat-card>
+  </main>
+
+</section>

@@ -1,15 +1,13 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule, MatIconModule, MatSnackBarModule } from '@angular/material';
 
 import { HeaderComponent, CartComponent } from './components';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatSnackBarModule,
+    MaterialModule,
   ],
   declarations: [
     HeaderComponent,

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -10,16 +11,18 @@ import { reducers, metaReducers } from './store/reducers';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({ maxAge: 50 }),
+    StoreDevtoolsModule.instrument(),
     CoreModule,
-    // ENV !== 'production' ? StoreDevtoolsModule.instrument() : []
+    MaterialModule
   ],
   declarations: [
     AppComponent

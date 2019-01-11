@@ -5,6 +5,7 @@ const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const jsonServer = require('json-server');
 
 const environment = (process.env.NODE_ENV || 'development').trim();
 const isDev = environment !== 'production';
@@ -18,6 +19,7 @@ module.exports = {
     }
   },
   entry: {
+    vendor: './src/vendor.ts',
     polyfills: './src/polyfills.ts',
     main: './src/main.ts'
   },
@@ -81,7 +83,10 @@ module.exports = {
     new CopyWebpackPlugin([{
         from: 'src/assets',
         to: 'assets'
-      }
+      },
+      {
+        from: 'src/manifest.json'
+      },
     ]),
     new UglifyJsPlugin({
       sourceMap: false,
@@ -90,6 +95,22 @@ module.exports = {
   ],
   devtool: 'source-map',
   devServer: {
-    historyApiFallback: true
-  }
+    historyApiFallback: true,
+    hot: true,
+    stats: {
+      chunks: false,
+      chunkModules: false,
+      chunkOrigins: false,
+      colors: true,
+      errors: true,
+      errorDetails: false,
+      hash: false,
+      timings: false,
+      modules: false,
+      warnings: false,
+    },
+    setup: function (app) {
+      app.use('/api', jsonServer.router('db.json'));
+    },
+  },
 };

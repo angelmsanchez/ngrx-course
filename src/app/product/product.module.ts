@@ -7,6 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProductRoutingModule } from './product-routing.module';
 import { ProductComponent, ListProductsComponent } from './components';
 import { reducers } from './store';
+import { PizzaService } from './services';
 
 
 @NgModule({
@@ -20,5 +21,8 @@ import { reducers } from './store';
     ProductComponent,
     ListProductsComponent,
   ],
+  providers: [
+    PizzaService
+  ]
 })
 export class ProductModule { }

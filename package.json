@@ -2,14 +2,15 @@
   "name": "ngrx-course",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve --open --port 4444",
-    "start:dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --open",
     "build": "ng build",
     "build:dev": "cross-env NODE_ENV=development webpack",
-    "test": "ng test",
+    "e2e": "ng e2e",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "ng": "ng",
+    "start": "ng serve --open --port 4444",
+    "start:api": "json-server --watch db.json --routes routes.json",
+    "start:dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --open",
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
@@ -56,7 +57,7 @@
     "http-server": "^0.11.1",
     "jasmine-core": "2.99.1",
     "jasmine-spec-reporter": "4.2.1",
-    "json-server": "^0.14.0",
+    "json-server": "^0.14.2",
     "karma": "3.0.0",
     "karma-chrome-launcher": "2.2.0",
     "karma-coverage-istanbul-reporter": "2.0.1",
@@ -67,7 +68,7 @@
     "protractor": "5.4.0",
     "raw-loader": "^1.0.0",
     "sass-loader": "^7.1.0",
-    "to-string-loader": "^1.1.5",
+    "style-loader": "^0.23.1",
     "ts-node": "7.0.1",
     "tslint": "5.11.0",
     "tslint-loader": "^3.5.4",

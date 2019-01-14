@@ -1,3 +1,5 @@
-<p>
-  list-products works!
-</p>
+<section class="list-products">
+  <div class="pizzas" *ngFor="let pizza of pizzas">
+    <app-pizza [pizza]="pizza"></app-pizza>
+  </div>
+</section>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ListProductsComponent } from './components/';
+import { ListProductsComponent, PizzaDetailComponent } from './components/';
 import { PizzaResolve } from './guards';
 
 const routes: Routes = [
@@ -11,6 +11,10 @@ const routes: Routes = [
     resolve: {
       pizzas: PizzaResolve
     }
+  },
+  {
+    path: ':id',
+    component: PizzaDetailComponent,
   }
 ];
 

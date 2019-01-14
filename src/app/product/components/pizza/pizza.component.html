@@ -1,0 +1,15 @@
+<section class="pizza-item">
+  <div class="pizza-display">
+    <div class="pizza-display__base">
+      <img src="/assets/img/pizza.svg">
+      <img *ngFor="let topping of pizza?.toppings; index as i;" src="/assets/img/toppings/{{ topping.name }}.svg"
+        [style.zIndex]="i" class="pizza-display__topping" @drop>
+    </div>
+  </div>
+  <h4>{{ pizza.name }}</h4>
+  <a [routerLink]="['/products', pizza.id]">
+    <button type="button" class="btn btn__ok">
+      View Pizza
+    </button>
+  </a>
+</section>

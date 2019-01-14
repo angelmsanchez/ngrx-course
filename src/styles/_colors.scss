@@ -1,0 +1,4 @@
+@import './styles';
+
+$color-primary: mat-color(map-get($my-theme, primary));
+$color-accent: mat-color(map-get($my-theme, accent));

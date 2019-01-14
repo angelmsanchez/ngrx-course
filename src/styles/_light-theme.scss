@@ -1,0 +1,4 @@
+$solution-app-primary: mat-palette($mat-indigo);
+$solution-app-accent: mat-palette($mat-pink, A200, A100, A400);
+$solution-app-warn: mat-palette($mat-red);
+$my-ligth-theme: mat-light-theme($solution-app-primary, $solution-app-accent, $solution-app-warn);

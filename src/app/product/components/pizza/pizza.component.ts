@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { transition, style, animate, trigger } from '@angular/animations';
+import { Store } from '@ngrx/store';
 
 import { PizzaInterface } from '../../interfaces';
+import { AddProductCart } from '@store/actions';
 
 export const DROP_ANIMATION = trigger('drop', [
   transition(':enter', [
@@ -28,4 +30,12 @@ export const DROP_ANIMATION = trigger('drop', [
 })
 export class PizzaComponent {
   @Input() pizza: PizzaInterface;
+
+  constructor(
+    private store: Store<{}>
+  ) { }
+
+  addPizza(): void {
+    this.store.dispatch(new AddProductCart(this.pizza));
+  }
 }

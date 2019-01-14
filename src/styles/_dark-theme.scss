@@ -1,0 +1,4 @@
+$solution-app-dark-primary: mat-palette($mat-pink);
+$solution-app-dark-accent: mat-palette($mat-grey, A200, A100, A400);
+$solution-app-dark-warn: mat-palette($mat-red);
+$my-dark-theme: mat-dark-theme($solution-app-dark-primary, $solution-app-dark-accent, $solution-app-dark-warn);

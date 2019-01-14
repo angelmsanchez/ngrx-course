@@ -8,3 +8,8 @@ export const getTypeTheme = createSelector(
   getTypeThemeState,
   state => state.theme
 );
+
+export const getCart = createSelector(
+  getTypeThemeState,
+  state => state.cart
+);

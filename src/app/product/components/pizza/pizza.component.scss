@@ -1,12 +1,14 @@
 .pizza-item {
   text-align: center;
-  margin: 0 10px;
+  margin: 0;
   padding: 20px 10px;
-  background: #f5f5f5;
   position: relative;
+  flex: 0 0 33%;
+  transition: 0.2s all ease;
+  min-width: 320px;
 
-  a {
-    color: #333;
+  &:hover {
+    transform: scale(1.05);
   }
 
   h4 {

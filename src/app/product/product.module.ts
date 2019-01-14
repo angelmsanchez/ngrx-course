@@ -12,6 +12,7 @@ import {
 } from './components';
 import { reducers } from './store';
 import { PizzaService } from './services';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { PizzaService } from './services';
     ProductRoutingModule,
     StoreModule.forFeature('products', reducers),
     ReactiveFormsModule,
+    MaterialModule
     // EffectsModule.forFeature(effects),
   ],
   declarations: [

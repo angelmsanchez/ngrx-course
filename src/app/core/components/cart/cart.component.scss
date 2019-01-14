@@ -1,3 +1,5 @@
+@import './../../../../styles/colors';
+
 .cart {
   display: flex;
 
@@ -18,14 +20,18 @@
     align-items: center;
 
     .text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: absolute;
       height: 16px;
       width: 16px;
+      font-size: 0.9rem;
     }
 
     .background {
       position: absolute;
-      background: rgba(255, 0, 0, 0.9);
+      background: $color-accent;
       border-radius: 50%;
       height: 20px;
       width: 20px;

@@ -16,6 +16,7 @@ export class PizzaService {
   ) { }
 
   getList(): Observable<PizzaInterface[]> {
+    console.log('service');
     return this.http.get<PizzaInterface[]>(this.urlApi);
   }
 }

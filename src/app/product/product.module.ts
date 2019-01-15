@@ -10,7 +10,7 @@ import {
   PizzaFormComponent, ListProductsComponent, PizzaComponent,
   PizzaDetailComponent
 } from './components';
-import { reducers } from './store';
+import { reducers, effects } from './store';
 import { PizzaService } from './services';
 import { MaterialModule } from '../material/material.module';
 
@@ -18,10 +18,10 @@ import { MaterialModule } from '../material/material.module';
   imports: [
     CommonModule,
     ProductRoutingModule,
-    StoreModule.forFeature('products', reducers),
     ReactiveFormsModule,
-    MaterialModule
-    // EffectsModule.forFeature(effects),
+    MaterialModule,
+    StoreModule.forFeature('products', reducers),
+    EffectsModule.forFeature(effects),
   ],
   declarations: [
     ListProductsComponent,

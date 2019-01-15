@@ -17,6 +17,7 @@ const initialState: PizzaState = {
 export function reducer(state = initialState, action: fromPizzas.PizzasActionTypes): PizzaState {
   switch (action.type) {
     case fromPizzas.LOAD_PIZZAS: {
+      console.log('dentro load pizzas');
       return {
         ...state,
         loading: true,
@@ -24,6 +25,7 @@ export function reducer(state = initialState, action: fromPizzas.PizzasActionTyp
     }
 
     case fromPizzas.LOAD_PIZZAS_SUCCESS: {
+      console.log('dentro load pizzas success');
       const pizzas = action.payload;
       // const entities = pizzas.reduce(
       //   (entities: { [id: number]: PizzaInterface }, pizza: PizzaInterface) => {

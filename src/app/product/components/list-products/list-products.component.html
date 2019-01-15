@@ -1,5 +1,5 @@
 <section class="list-products">
-  <div class="pizzas" *ngFor="let pizza of pizzas">
+  <div class="pizzas" *ngFor="let pizza of pizzas | async">
     <app-pizza [pizza]="pizza"></app-pizza>
   </div>
 </section>

@@ -2,15 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ListProductsComponent, PizzaDetailComponent } from './components/';
-import { PizzaResolve } from './guards';
+import { PizzaResolve, PizzaCanActivate } from './guards';
 
 const routes: Routes = [
   {
     path: '',
     component: ListProductsComponent,
-    resolve: {
-      pizzas: PizzaResolve
-    }
+    canActivate: [PizzaCanActivate],
+    // resolve: { pizzas: PizzaResolve }
   },
   {
     path: ':id',
@@ -22,7 +21,8 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
   providers: [
-    PizzaResolve
+    PizzaResolve,
+    PizzaCanActivate
   ]
 })
 export class ProductRoutingModule { }

@@ -9,7 +9,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 
 import { reducers, metaReducers } from './store/reducers';
-// import { ProductEffects } from './store/effect';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -29,8 +28,10 @@ import { MaterialModule } from './material/material.module';
     HttpClientModule,
   ],
   declarations: [
-    AppComponent
+    AppComponent,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+  ]
 })
 export class AppModule { }

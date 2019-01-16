@@ -1,8 +1,8 @@
 <header>
   <mat-toolbar color="primary">
-    <a routerLink="home" class="fill">
+    <button class="fill" [routerLink]="['products']" type="button" mat-icon-button>
       NgRx Course
-    </a>
+    </button>
     <mat-slide-toggle color="accent" (change)="onThemeChange($event)">
       Dark Theme
     </mat-slide-toggle>

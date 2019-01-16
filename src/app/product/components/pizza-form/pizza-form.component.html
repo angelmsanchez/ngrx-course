@@ -1,3 +1,32 @@
-<p>
-  product works!
-</p>
+<div class="pizza-form">
+  <app-pizza-detail [pizza]="pizza"></app-pizza-detail>
+  <form [formGroup]="form">
+    <label>
+      <h4>Pizza name</h4>
+      <input type="text" formControlName="name" placeholder="e.g. Pepperoni" class="pizza-form__input" [class.error]="nameControlInvalid">
+      <div class="pizza-form__error" *ngIf="nameControlInvalid">
+        <p>Pizza must have a name</p>
+      </div>
+    </label>
+
+    <label>
+      <h4>Select toppings</h4>
+    </label>
+    <div class="pizza-form__list">
+      <app-toppings [toppings]="toppings$ | async" (changeToppings)="changeToppings($event)" formControlName="toppings"></app-toppings>
+    </div>
+
+    <div class="pizza-form__actions">
+      <button (click)="createPizza(form)" *ngIf="!isEdit" type="button" class="btn btn__ok" mat-raised-button color="accent">
+        Create Pizza
+      </button>
+      <button (click)="updatePizza(form)" *ngIf="isEdit" type="button" class="btn btn__ok" mat-raised-button color="accent">
+        Save changes
+      </button>
+      <button (click)="removePizza(form)" *ngIf="isEdit" type="button" class="btn btn__ok" mat-raised-button color="accent">
+        Delete Pizza
+      </button>
+    </div>
+
+  </form>
+</div>

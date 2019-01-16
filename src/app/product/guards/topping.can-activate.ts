@@ -2,16 +2,16 @@ import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
 
 import { Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { tap, filter, take, switchMap, catchError } from 'rxjs/operators';
 
-import * as pizzaStore from '../store';
+import * as fromProducts from '../store';
 
 @Injectable()
-export class PizzaCanActivate implements CanActivate {
+export class ToppingCanActivate implements CanActivate {
 
   constructor(
-    private store: Store<{}>
+    private store: Store<{}>,
   ) { }
 
   canActivate(): Observable<boolean> {
@@ -21,10 +21,10 @@ export class PizzaCanActivate implements CanActivate {
     );
   }
 
-  private checkStore(): Observable<boolean> {
-    return this.store.select(pizzaStore.getPizzasLoaded).pipe(
+  checkStore(): Observable<boolean> {
+    return this.store.select(fromProducts.getToppingsLoaded).pipe(
       tap(loaded => {
-        if (!loaded) { this.store.dispatch(new pizzaStore.LoadPizzas()); }
+        if (!loaded) { this.store.dispatch(new fromProducts.LoadToppings()); }
       }),
       filter(loaded => loaded),
       take(1)

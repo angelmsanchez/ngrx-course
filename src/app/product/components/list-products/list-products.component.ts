@@ -4,7 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import { PizzaInterface } from '../../interfaces';
-import * as pizzaActions from './../../store/actions';
+import * as pizzaSelectors from './../../store/selectors';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list-products',
@@ -13,17 +14,13 @@ import * as pizzaActions from './../../store/actions';
 })
 export class ListProductsComponent implements OnInit {
 
-  pizzas: PizzaInterface[];
+  pizzas$: Observable<PizzaInterface[]>;
 
   constructor(
-    private activatedRoute: ActivatedRoute,
     private store: Store<{}>,
   ) { }
 
   ngOnInit(): void {
-    console.log('this.activatedRoute.snapshot.data');
-    console.log(this.activatedRoute.snapshot.data);
-    this.pizzas = this.activatedRoute.snapshot.data.pizzas;
-    // this.store.dispatch(new pizzaActions.LoadPizzas());
+    this.pizzas$ = this.store.select(pizzaSelectors.getPizzasEntities);
   }
 }

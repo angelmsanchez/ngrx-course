@@ -8,10 +8,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProductRoutingModule } from './product-routing.module';
 import {
   PizzaFormComponent, ListProductsComponent, PizzaComponent,
-  PizzaDetailComponent
+  PizzaDetailComponent, ToppingsComponent
 } from './components';
-import { reducers, effects } from './store';
-import { PizzaService } from './services';
+import * as storeProducts from './store';
+import { PizzaService, ToppingService } from './services';
 import { MaterialModule } from '../material/material.module';
 
 @NgModule({
@@ -20,17 +20,19 @@ import { MaterialModule } from '../material/material.module';
     ProductRoutingModule,
     ReactiveFormsModule,
     MaterialModule,
-    StoreModule.forFeature('products', reducers),
-    EffectsModule.forFeature(effects),
+    StoreModule.forFeature(storeProducts.PRODUCT_FEATURE_SELECTOR, storeProducts.reducers),
+    EffectsModule.forFeature(storeProducts.effects),
   ],
   declarations: [
     ListProductsComponent,
     PizzaComponent,
     PizzaDetailComponent,
     PizzaFormComponent,
+    ToppingsComponent,
   ],
   providers: [
-    PizzaService
+    PizzaService,
+    ToppingService,
   ]
 })
 export class ProductModule { }

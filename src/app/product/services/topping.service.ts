@@ -3,19 +3,19 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
-import { PizzaInterface } from '../interfaces';
+import { ToppingInterface } from '../interfaces';
 import { environment } from '../../../environments/environment';
 
 @Injectable()
-export class PizzaService {
+export class ToppingService {
 
-  private urlApi: string = `${environment.apiUrl}pizzas`;
+  private urlApi: string = `${environment.apiUrl}toppings`;
 
   constructor(
     private http: HttpClient
   ) { }
 
-  getList(): Observable<PizzaInterface[]> {
-    return this.http.get<PizzaInterface[]>(this.urlApi);
+  getToppings(): Observable<ToppingInterface[]> {
+    return this.http.get<ToppingInterface[]>(this.urlApi);
   }
 }

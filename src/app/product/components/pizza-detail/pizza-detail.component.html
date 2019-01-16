@@ -1,3 +1,7 @@
-<p>
-  pizza-detail works!
-</p>
+<section class="pizza-detail">
+  <div class="pizza-detail__base">
+    <img src="/assets/img/pizza.svg">
+    <img *ngFor="let topping of pizza?.toppings; index as i;" src="/assets/img/toppings/{{ topping.name }}.svg"
+      [style.zIndex]="i" class="pizza-detail__topping" @drop>
+  </div>
+</section>

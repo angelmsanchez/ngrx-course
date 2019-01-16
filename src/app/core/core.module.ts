@@ -1,5 +1,6 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { HeaderComponent, CartComponent } from './components';
 import { MaterialModule } from '../material/material.module';
@@ -8,6 +9,7 @@ import { MaterialModule } from '../material/material.module';
   imports: [
     CommonModule,
     MaterialModule,
+    RouterModule,
   ],
   declarations: [
     HeaderComponent,

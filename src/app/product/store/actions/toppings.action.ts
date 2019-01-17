@@ -21,14 +21,8 @@ export class LoadToppingsSuccess implements Action {
   constructor(public payload: ToppingInterface[]) { }
 }
 
-export class VisualiseToppings implements Action {
-  readonly type = VISUALISE_TOPPINGS;
-  constructor(public payload: number[]) { }
-}
-
 // action types
 export type ToppingsAction =
   | LoadToppings
   | LoadToppingsFail
-  | LoadToppingsSuccess
-  | VisualiseToppings;
+  | LoadToppingsSuccess;

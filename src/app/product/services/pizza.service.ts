@@ -18,4 +18,8 @@ export class PizzaService {
   getList(): Observable<PizzaInterface[]> {
     return this.http.get<PizzaInterface[]>(this.urlApi);
   }
+
+  create(pizza: PizzaInterface): Observable<PizzaInterface> {
+    return this.http.post<PizzaInterface>(this.urlApi, pizza);
+  }
 }

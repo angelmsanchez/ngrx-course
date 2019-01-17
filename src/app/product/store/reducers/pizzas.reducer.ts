@@ -40,17 +40,20 @@ export function reducer(state = initialState, action: fromPizzas.PizzasActionTyp
       };
     }
 
-    case fromPizzas.UPDATE_PIZZA_SUCCESS:
     case fromPizzas.CREATE_PIZZA_SUCCESS: {
-      // const pizza = action.payload;
-      // const entities = {
-      //   ...state.entities,
-      //   [pizza.id]: pizza,
-      // };
-
+      state.entities.push(action.payload);
       return {
         ...state,
-        // entities,
+        entities: [...state.entities]
+      };
+    }
+
+    case fromPizzas.UPDATE_PIZZA_SUCCESS: {
+      // state.entities.push(action.payload);
+      console.log('update pizza success');
+      return {
+        ...state,
+        entities: [...state.entities]
       };
     }
 

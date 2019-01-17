@@ -1,4 +1,4 @@
-<div class="pizza-form">
+<section class="pizza-form">
   <app-pizza-detail [pizza]="pizza"></app-pizza-detail>
   <form [formGroup]="form">
     <label>
@@ -8,25 +8,23 @@
         <p>Pizza must have a name</p>
       </div>
     </label>
-
     <label>
       <h4>Select toppings</h4>
     </label>
     <div class="pizza-form__list">
       <app-toppings [toppings]="toppings$ | async" (changeToppings)="changeToppings($event)" formControlName="toppings"></app-toppings>
     </div>
-
     <div class="pizza-form__actions">
-      <button (click)="createPizza(form)" *ngIf="!isEdit" type="button" class="btn btn__ok" mat-raised-button color="accent">
+      <button (click)="createPizza()" *ngIf="!isEdit" type="button" class="btn btn__ok" mat-raised-button color="accent"
+        [disabled]="form.get('name').hasError('required')">
         Create Pizza
       </button>
-      <button (click)="updatePizza(form)" *ngIf="isEdit" type="button" class="btn btn__ok" mat-raised-button color="accent">
+      <button (click)="updatePizza()" *ngIf="isEdit" type="button" class="btn btn__ok" mat-raised-button color="accent">
         Save changes
       </button>
-      <button (click)="removePizza(form)" *ngIf="isEdit" type="button" class="btn btn__ok" mat-raised-button color="accent">
+      <button (click)="removePizza()" *ngIf="isEdit" type="button" class="btn btn__ok" mat-raised-button color="accent">
         Delete Pizza
       </button>
     </div>
-
   </form>
-</div>
+</section>

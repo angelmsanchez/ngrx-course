@@ -1,5 +1,6 @@
 {
-  "toppings": [{
+  "toppings": [
+    {
       "id": 1,
       "name": "anchovy"
     },
@@ -48,9 +49,11 @@
       "name": "tomato"
     }
   ],
-  "pizzas": [{
+  "pizzas": [
+    {
       "name": "Blazin' Inferno",
-      "toppings": [{
+      "toppings": [
+        {
           "id": 12,
           "name": "tomato"
         },
@@ -83,7 +86,8 @@
     },
     {
       "name": "Plain Ol' Pepperoni",
-      "toppings": [{
+      "toppings": [
+        {
           "id": 6,
           "name": "mushroom"
         },
@@ -109,6 +113,76 @@
         }
       ],
       "id": 3
+    },
+    {
+      "payload": {
+        "name": "Pizza example"
+      },
+      "type": "[Products] Create Pizza",
+      "id": 4
+    },
+    {
+      "payload": {
+        "name": "Pizza cutre"
+      },
+      "type": "[Products] Create Pizza",
+      "id": 5
+    },
+    {
+      "name": "pizza cutre",
+      "id": 6
+    },
+    {
+      "name": "Pizza vegana",
+      "id": 7
+    },
+    {
+      "name": "peperoni",
+      "id": 8
+    },
+    {
+      "name": "carbonara",
+      "id": 9
+    },
+    {
+      "name": "Pepperoni",
+      "id": 10
+    },
+    {
+      "name": "",
+      "toppings": [
+        {
+          "id": 1,
+          "name": "anchovy"
+        },
+        {
+          "id": 5,
+          "name": "mozzarella"
+        },
+        {
+          "id": 9,
+          "name": "pepper"
+        }
+      ],
+      "id": 11
+    },
+    {
+      "name": "Pizza Chili",
+      "toppings": [
+        {
+          "id": 8,
+          "name": "onion"
+        },
+        {
+          "id": 12,
+          "name": "tomato"
+        },
+        {
+          "id": 4,
+          "name": "chili"
+        }
+      ],
+      "id": 12
     }
   ]
 }

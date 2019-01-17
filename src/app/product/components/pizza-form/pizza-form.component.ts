@@ -34,69 +34,32 @@ export class PizzaFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     this.isEdit = this.ativatedRoute.snapshot.params.id;
-    if (this.isEdit) { this.subscribePizza(); }
-    // this.pizza$ = this.store.select(storePizzas.getPizzasLoaded).pipe(
-    //   tap((pizza: PizzaInterface = null) => {
-    //     const pizzaExists = !!(pizza && pizza.toppings);
-    //     const toppings = pizzaExists
-    //       ? pizza.toppings.map(topping => topping.id)
-    //       : [];
-    //     // this.store.dispatch(new storePizzas.VisualiseToppings(toppings));
-    //   })
-    // );
+    this.isEdit ? this.subscribePizza() : this.initEmptyPizza();
     this.toppings$ = this.store.select(storeProducts.getToppingEntities);
-    // this.visualise$ = this.store.select(storePizzas.getPizzaVisualised);
   }
 
-  get nameControl() {
-    return this.form.get('name') as FormControl;
+  get nameControlInvalid(): boolean {
+    return this.form.get('name').hasError('required') && this.form.get('name').touched;
   }
 
-  get nameControlInvalid() {
-    return this.nameControl.hasError('required') && this.nameControl.touched;
+  createPizza(): void {
+    this.pizza.name = this.form.value.name;
+    this.store.dispatch(new storeProducts.CreatePizza(this.pizza));
   }
 
-  // ngOnChanges(changes: SimpleChanges) {
-  //   if (this.pizza && this.pizza.id) {
-  //     this.exists = true;
-  //     this.form.patchValue(this.pizza);
-  //   }
-  //   this.form
-  //     .get('toppings')
-  //     .valueChanges.pipe(
-  //       map(toppings => toppings.map((topping: Topping) => topping.id))
-  //     )
-  //     .subscribe(value => this.selected.emit(value));
-  // }
-
-  createPizza(form: FormGroup) {
-    const { value, valid } = form;
-    if (valid) {
-      // this.store.dispatch(new storeProducts.CreatePizza(value));
-    }
+  updatePizza(): void {
+    const { value, valid, touched } = this.form;
+    if (touched && valid) { this.store.dispatch(new storeProducts.UpdatePizza(value)); }
   }
 
-  updatePizza(form: FormGroup) {
-    const { value, valid, touched } = form;
-    if (touched && valid) {
-      // this.store.dispatch(new storeProducts.UpdatePizza(value));
-    }
-  }
-
-  removePizza(form: FormGroup) {
-    const { value } = form;
+  removePizza(): void {
     const remove = window.confirm('Are you sure?');
-    if (remove) {
-      // this.store.dispatch(new storeProducts.RemovePizza(value));
-    }
+    if (remove) { this.store.dispatch(new storeProducts.RemovePizza(this.form.value)); }
   }
 
   changeToppings(toppings: ToppingInterface[]) {
-    console.log('toppings ', toppings);
-    this.pizza.toppings = [...toppings];
-    // this.store.dispatch(new storeProducts.VisualiseToppings(event));
+    this.pizza = { ...this.pizza, ...{ toppings: [...toppings] } };
   }
 
   private subscribePizza(): void {
@@ -104,5 +67,12 @@ export class PizzaFormComponent implements OnInit {
       .subscribe(pizzas => {
         this.pizza = pizzas.filter(pizza => pizza.id === this.ativatedRoute.snapshot.params.id)[0];
       });
+  }
+
+  private initEmptyPizza(): void {
+    this.pizza = {
+      name: '',
+      toppings: []
+    };
   }
 }

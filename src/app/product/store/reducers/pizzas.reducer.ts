@@ -49,8 +49,13 @@ export function reducer(state = initialState, action: fromPizzas.PizzasActionTyp
     }
 
     case fromPizzas.UPDATE_PIZZA_SUCCESS: {
-      // state.entities.push(action.payload);
-      console.log('update pizza success');
+      const pizzaUpdate = action.payload;
+      state.entities = state.entities.filter(pizza => {
+        if (pizza.id === pizzaUpdate.id) {
+          pizza = { ...pizzaUpdate };
+        }
+        return pizza;
+      });
       return {
         ...state,
         entities: [...state.entities]
@@ -58,12 +63,11 @@ export function reducer(state = initialState, action: fromPizzas.PizzasActionTyp
     }
 
     case fromPizzas.REMOVE_PIZZA_SUCCESS: {
-      const pizza = action.payload;
-      const { [pizza.id]: removed, ...entities } = state.entities;
-
+      const pizzaRemove = action.payload;
+      state.entities = state.entities.filter(pizza => pizza.id !== pizzaRemove.id);
       return {
         ...state,
-        entities,
+        entities: [...state.entities]
       };
     }
   }

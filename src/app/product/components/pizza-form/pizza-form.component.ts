@@ -3,6 +3,7 @@ import {
   FormControl, FormGroup, FormArray,
   FormBuilder, Validators,
 } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
@@ -10,7 +11,6 @@ import { Store } from '@ngrx/store';
 
 import { PizzaInterface, ToppingInterface } from '../../interfaces';
 import * as storeProducts from './../../store';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-pizza-form',
@@ -31,6 +31,7 @@ export class PizzaFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private store: Store<{}>,
     private ativatedRoute: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -55,7 +56,10 @@ export class PizzaFormComponent implements OnInit {
 
   removePizza(): void {
     const remove = window.confirm('Are you sure?');
-    if (remove) { this.store.dispatch(new storeProducts.RemovePizza(this.form.value)); }
+    if (remove) {
+      this.store.dispatch(new storeProducts.RemovePizza(this.pizza));
+      this.router.navigate(['products']);
+    }
   }
 
   changeToppings(toppings: ToppingInterface[]) {
@@ -65,7 +69,7 @@ export class PizzaFormComponent implements OnInit {
   private subscribePizza(): void {
     this.store.select(storeProducts.getPizzasEntities)
       .subscribe(pizzas => {
-        this.pizza = pizzas.filter(pizza => pizza.id === this.ativatedRoute.snapshot.params.id)[0];
+        this.pizza = pizzas.filter(pizza => pizza && pizza.id === parseInt(this.ativatedRoute.snapshot.params.id, 0))[0];
       });
   }
 

@@ -85,7 +85,7 @@
       "id": 1
     },
     {
-      "name": "Pizza Chili",
+      "name": "Pizza Chili 2.0",
       "toppings": [
         {
           "id": 8,
@@ -98,9 +98,67 @@
         {
           "id": 4,
           "name": "chili"
+        },
+        {
+          "id": 1,
+          "name": "anchovy"
         }
       ],
       "id": 12
+    },
+    {
+      "name": "All in",
+      "toppings": [
+        {
+          "id": 1,
+          "name": "anchovy"
+        },
+        {
+          "id": 4,
+          "name": "chili"
+        },
+        {
+          "id": 7,
+          "name": "olive"
+        },
+        {
+          "id": 10,
+          "name": "pepperoni"
+        },
+        {
+          "id": 11,
+          "name": "sweetcorn"
+        },
+        {
+          "id": 8,
+          "name": "onion"
+        },
+        {
+          "id": 5,
+          "name": "mozzarella"
+        },
+        {
+          "id": 2,
+          "name": "bacon"
+        },
+        {
+          "id": 3,
+          "name": "basil"
+        },
+        {
+          "id": 6,
+          "name": "mushroom"
+        },
+        {
+          "id": 9,
+          "name": "pepper"
+        },
+        {
+          "id": 12,
+          "name": "tomato"
+        }
+      ],
+      "id": 13
     }
   ]
 }

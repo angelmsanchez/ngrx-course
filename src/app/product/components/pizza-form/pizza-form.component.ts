@@ -22,10 +22,7 @@ export class PizzaFormComponent implements OnInit {
   toppings$: Observable<ToppingInterface[]>;
   pizza: PizzaInterface;
   isEdit: boolean = false;
-  form = this.formBuilder.group({
-    name: ['', Validators.required],
-    toppings: [[]],
-  });
+  form: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -51,7 +48,8 @@ export class PizzaFormComponent implements OnInit {
 
   updatePizza(): void {
     const { value, valid, touched } = this.form;
-    if (touched && valid) { this.store.dispatch(new storeProducts.UpdatePizza(value)); }
+    this.pizza.name = value.name;
+    if (touched && valid) { this.store.dispatch(new storeProducts.UpdatePizza(this.pizza)); }
   }
 
   removePizza(): void {
@@ -70,6 +68,7 @@ export class PizzaFormComponent implements OnInit {
     this.store.select(storeProducts.getPizzasEntities)
       .subscribe(pizzas => {
         this.pizza = pizzas.filter(pizza => pizza && pizza.id === parseInt(this.ativatedRoute.snapshot.params.id, 0))[0];
+        this.initForm();
       });
   }
 
@@ -78,5 +77,13 @@ export class PizzaFormComponent implements OnInit {
       name: '',
       toppings: []
     };
+    this.initForm();
+  }
+
+  private initForm(): void {
+    this.form = this.formBuilder.group({
+      name: [this.pizza.name, Validators.required],
+      toppings: [this.pizza.toppings],
+    });
   }
 }

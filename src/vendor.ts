@@ -5,7 +5,6 @@ import '@angular/common';
 import '@angular/compiler';
 import '@angular/core';
 import '@angular/forms';
-import '@angular/http';
 import '@angular/router';
 import '@angular/material';
 import '@angular/platform-browser';

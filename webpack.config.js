@@ -88,15 +88,16 @@ module.exports = {
         from: 'src/manifest.json'
       },
     ]),
-    new UglifyJsPlugin({
-      sourceMap: false,
-      parallel: true
-    }),
+    // new UglifyJsPlugin({
+    //   sourceMap: false,
+    //   parallel: true
+    // }),
   ],
   devtool: 'source-map',
   devServer: {
     historyApiFallback: true,
     hot: true,
+    port: 3000,
     stats: {
       chunks: false,
       chunkModules: false,
